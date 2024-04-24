@@ -1,7 +1,7 @@
 from enum import Enum
 
 # string
-name = "s"
+name = "saru"
 print(type(name) == str)
 print(isinstance(name, str))
 
@@ -12,9 +12,9 @@ age += 8
 print(age)
 
 khaled = """
-K is a good Boy
+Khaled is a good Boy
 Hello
-Love S and Food
+Love Sara and Food
 
 Love Panda
 """
@@ -48,6 +48,8 @@ imaginary_num_2 = complex(5,7)
 
 print(imaginary_num_1.real, imaginary_num_1.imag)
 print(imaginary_num_2.real, imaginary_num_2.imag)
+
+# built-in functions
 print(abs(-5.5))
 print(round(5.4944,1))
 
@@ -168,17 +170,142 @@ print(list(dog.items()))
 new_dict_list = list(dog.items())
 print(type(new_dict_list[0]))
 
-print(len(dog))
+print(len(dog)) #length of dictionary
 
-print(dog.pop("color"))  #pop will return the value and delete the item
+print(dog.pop("color"))  #return and delete the item
 print(dog)
-print(dog.popitem())  #remove the last item from the dictionary
-print(dog)
-print("name" in dog)
 
-dog_copy = dog.copy()
+print(dog.popitem())  #return and remove the last item 
+print(dog)
+
+print("name" in dog) #check if the key is present
+
+dog_copy = dog.copy() #copy the dictionary
 
 del dog["age"]  #delete an item
 
 print(dog)
 print(dog_copy)
+
+
+## Sets
+set1 = {"Roger", "Syd"}
+set2 = {"Roger", "Luna"}
+set3 = {"Luna"}
+
+#intersection | all items that are common in both sets
+intersect_set = set1 & set2
+print(intersect_set)
+
+# unioin | all items that are in either set
+union_set = set1 | set2 | set3
+print(union_set)
+
+# difference - items that are in one set but not the other
+diff_set1 = set1 - set2
+diff_set2 = set2 - set1
+print(diff_set1)
+print(diff_set2)
+
+# superset - items that are in both sets - set2 has all items in set3 then True else False
+super_set = set2 > set3
+super_set2 = set2 < set3
+print(super_set)
+print(super_set2)
+print(len(set2))
+print(list(set2))
+print("Roger" in set2)
+
+# subsets - set2 is a subset of set3 if all items in set2 are in set3
+sub_set = set2 <= set3
+sub_set2 = set3 <= set2
+print(sub_set)
+print(sub_set2)
+
+
+#Nested function
+def talk(phrase):
+    def say(word):
+        print(word)
+
+    words = phrase.split(' ')
+    for word in words:
+        say(word)
+
+talk('I am going to buy the milk')
+
+def count():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        print(count)
+        
+    increment()
+
+count()
+
+
+# Closuers
+def counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
+
+increment = counter() 
+print(increment())
+print(increment())
+print(increment())
+
+# Objects 
+age = 8 
+print(age.real)
+print(age.imag)
+print(age.bit_length()) # number of bit necessary to store the 8 value in the binary notations
+
+items = [1,2]
+items.append(3)
+items.pop()
+print(items)
+print(id(items)) # return the memory address of the object (item list)
+
+
+# # Loops
+condition = True
+temp_counter = 0
+while condition == True:
+    print(f"The condition is True{temp_counter}")
+    temp_counter = temp_counter + 1;
+    if(temp_counter == 15):
+        condition = False
+    
+temp_count = 0
+print(range(15)) # From 0 to 14, so total 15
+
+for item in range(15):
+    temp_count += 1
+
+    if(temp_count == 9):
+        continue
+    
+    print(temp_count)
+    
+    if(temp_count == 12):
+        break
+
+items = [1,2,3,4]
+
+for item in items:
+    print(item)
+
+str_items = ["khaled", "hasan", "sara"]
+
+#enumerate returns the index and the value
+for index, item in enumerate(str_items):
+    print(index, item)
