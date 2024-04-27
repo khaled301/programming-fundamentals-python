@@ -611,21 +611,35 @@
 
 ## a way to manage resources | it is a way to manage resources such as files, network connections, and database connections 
 
-## This example demonstrates how custom context managers can be used to handle resources, clean up tasks, and manage exceptions effectively within a with statement.
-class CustomContextManager:
-    def __enter__(self):
-        print("Entering the context")
-        return self
+# ## This example demonstrates how custom context managers can be used to handle resources, clean up tasks, and manage exceptions effectively within a with statement.
+# class CustomContextManager:
+#     def __enter__(self):
+#         print("Entering the context")
+#         return self
     
-    def __exit__(self, exc_type, exc_value, traceback):
-        print(f"Exiting the context with {exc_type}")
+#     def __exit__(self, exc_type, exc_value, traceback):
+#         print(f"Exiting the context with {exc_type}")
 
-        if exc_type is not None:
-            print(f"An Exception of type: {exc_type} occurred with the value {exc_value}")
+#         if exc_type is not None:
+#             print(f"An Exception of type: {exc_type} occurred with the value {exc_value}")
         
-        return True
+#         return True
 
-with CustomContextManager() as manager:
-    print("Inside the context")
-    raise ValueError("An error occurred inside the context")
-    print(2+2)
+# with CustomContextManager() as manager:
+#     print("Inside the context")
+#     raise ValueError("An error occurred inside the context")
+#     print(2+2)
+
+
+## pip | it is a way to install packages from the Python Package Index (PyPI - pypi.org)
+# install a package
+# pip install requests
+
+# #update a package 
+# pip install -U requests
+
+# # unistall a package
+# pip uninstall requests
+
+# # to see the package informtation
+# pip show requests
