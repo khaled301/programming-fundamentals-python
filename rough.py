@@ -372,9 +372,9 @@
 # gen_result = (a * 5 for a in gen_items)
 # print(list(gen_result))
 
-# ##list comprehension | In Python, list comprehensions are a way to create lists by applying an expression to each element in a sequence. When you use list comprehensions, the new list is created and populated with all the values immediately. This means that all the elements are generated at once.
+# ##list compressions comprehension | In Python, list compressions are a way to create lists by applying an expression to each element in a sequence. When you use list comprehensions, the new list is created and populated with all the values immediately. This means that all the elements are generated at once.
 
-# list_compr_items = [a ** 2 for a in range(1,6)]
+# list_compr_items = [a**2 for a in range(1,6)]
 # print(list(list_compr_items))
 
 # # # map, filter, reduce
@@ -611,28 +611,29 @@
 
 ## a way to manage resources | it is a way to manage resources such as files, network connections, and database connections 
 
-# ## This example demonstrates how custom context managers can be used to handle resources, clean up tasks, and manage exceptions effectively within a with statement.
+## This example demonstrates how custom context managers can be used to handle resources, clean up tasks, and manage exceptions effectively within a with statement.
 # class CustomContextManager:
-#     def __enter__(self):
-#         print("Entering the context")
-#         return self
+#   def __enter__(self):
+#     print("Entering the context")
+#     return self
     
-#     def __exit__(self, exc_type, exc_value, traceback):
-#         print(f"Exiting the context with {exc_type}")
+#   def __exit__(self, exc_type, exc_value, traceback):
+#     print(f"Exiting the context with {exc_type}")
 
-#         if exc_type is not None:
-#             print(f"An Exception of type: {exc_type} occurred with the value {exc_value}")
-        
-#         return True
+#     if exc_type is not None:
+#       print(f"An Exception of type: {exc_type} occurred with the value {exc_value}")
+
+#     return True
 
 # with CustomContextManager() as manager:
-#     print("Inside the context")
-#     raise ValueError("An error occurred inside the context")
-#     print(2+2)
+#   print("Inside the context")
 
+#   raise ValueError("An error occurred inside the context")
+  
 
 ## pip | it is a way to install packages from the Python Package Index (PyPI - pypi.org)
-# install a package
+
+# # install a package
 # pip install requests
 
 # #update a package 
@@ -643,3 +644,50 @@
 
 # # to see the package informtation
 # pip show requests
+
+
+## Polyphormism | a way to write code that can work with different types of objects 
+
+# class Dog:
+#   def eat(self):
+#     return "Dog is eating bones"
+
+# class Cat:
+#   def eat(self):
+#     return "Cat is eating fish"
+
+
+# animal1 = Dog()
+# animal2 = Cat()
+
+# print(animal1.eat())
+# print("And")
+# print(animal2.eat())
+
+
+
+## operator overloading | It's an advanced technique to make the classes comparable | a way to redefine the behavior of the built-in operators for custom classes | it is a way to use them in mathematical operations using python operators
+
+# greater than = ___gt__(self, other)
+
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    """Operator Overloading - Greater"""
+    def __gt__(self, other):
+        # return True if self.age > other.age else False
+        return self.age > other.age
+
+    def __add__(self, other):
+        return self.age + other.age
+
+
+roger = Dog("Roger", 8)
+# syd = Dog("Syd", 7)
+syd = Dog("Syd", 9)
+
+# comparing classes with python operator using operator overloading
+print(roger > syd)
+print(roger + syd)
