@@ -52,11 +52,6 @@
 # method is just a function inside a class
 # self is a reference to the object
 
-# instance variables
-# attributes
-# methods
-# properties
-
 class Student():
   def __init__(self, name, house):
     self.name = name
