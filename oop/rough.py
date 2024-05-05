@@ -166,74 +166,96 @@
 # class dict({key:value})
 
 
-class Student():
+# class Student():
 
-  def __init__(self, name, house, patronus):
-    self.name = name
-    # self.house will also call the setter method
-    self.house = house
-    self.patronus = patronus
+#   def __init__(self, name, house, patronus):
+#     self.name = name
+#     # self.house will also call the setter method
+#     self.house = house
+#     self.patronus = patronus
 
-  # meant for users of the program to print the object
-  def __str__(self):
-    return f"{self.name} from {self.house}"
+#   # meant for users of the program to print the object
+#   def __str__(self):
+#     return f"{self.name} from {self.house}"
 
-  # meant for the dev of the program to print the object
-  def __repr__(self):
-    return f"Your name is {self.name} and you are from {self.house}"
+#   # meant for the dev of the program to print the object
+#   def __repr__(self):
+#     return f"Your name is {self.name} and you are from {self.house}"
 
-  @property
-  def name(self):
-    return self._name
+#   @property
+#   def name(self):
+#     return self._name
 
-  @name.setter
-  def name(self, name):
-    if not name:
-      raise ValueError("Invalid name")
-    self._name = name
+#   @name.setter
+#   def name(self, name):
+#     if not name:
+#       raise ValueError("Invalid name")
+#     self._name = name
 
-  # Getter
-  @property
-  def house(self):
-    return self._house
+#   # Getter
+#   @property
+#   def house(self):
+#     return self._house
 
-  # Setter
-  @house.setter
-  def house(self, house):
-    if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
-      raise ValueError("Invalid house")
-    self._house = house
+#   # Setter
+#   @house.setter
+#   def house(self, house):
+#     if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+#       raise ValueError("Invalid house")
+#     self._house = house
 
-  def charm(self):
-    match self.patronus:
-      case "Stag":
-        return "Horse"
-      case "Otter":
-        return "Otter"
-      case "Jack Russell Terrier":
-        return "Dog"
-      case _:
-        return "Magical wand!"
-
-
-def main():
-  student = get_student()
-  student._name = "Number Four, Frawd"
-  print(student)
-  print("Expecto Patronum!")
-  print(student.charm())
+#   def charm(self):
+#     match self.patronus:
+#       case "Stag":
+#         return "Horse"
+#       case "Otter":
+#         return "Otter"
+#       case "Jack Russell Terrier":
+#         return "Dog"
+#       case _:
+#         return "Magical wand!"
 
 
-def get_student():
-  name = input("Your name: ")
-  house = input("Your house is in: ")
-  patronus = input("Your patronus is in: ")
-  # creating an student object of the class Student template
-  # constructor call
-  student = Student(name, house, patronus)
-
-  return student
+# def main():
+#   student = get_student()
+#   student._name = "Number Four, Frawd"
+#   print(student)
+#   print("Expecto Patronum!")
+#   print(student.charm())
 
 
-if __name__ == "__main__":
-  main()
+# def get_student():
+#   name = input("Your name: ")
+#   house = input("Your house is in: ")
+#   patronus = input("Your patronus is in: ")
+#   # creating an student object of the class Student template
+#   # constructor call
+#   student = Student(name, house, patronus)
+
+#   return student
+
+
+# if __name__ == "__main__":
+#   main()
+
+
+
+
+# Polymorphism | Polymorphism is the ability of an object to take on many forms.
+# Polymorphism: The ability of objects to take on different forms. Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+
+class Spell:
+  def spell(self):
+      return "Wand!"
+
+class Stag(Spell):
+  def spell(self):
+      return "Horse"
+
+class Otter(Spell):
+  def spell(self):
+      return "Otter"
+
+spells = [Stag(), Otter()]
+for spell in spells:
+  print(spell.spell())
